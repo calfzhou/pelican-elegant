@@ -42,13 +42,14 @@
             {% endif %}
 
             {{ page.content }}
-            {% from '_includes/comments.html' import comments with context %}
-            {{ comments(page) }}
+            {% from '_includes/comments.html' import comments_section with context %}
+            {{ comments_section(page) }}
         </div>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             {% include '_includes/social_links.html' %}
             {% include '_includes/mailchimp.html' %}
+            {% include '_includes/freelists.html' %}
         </div>
         </section>
     </div>
@@ -58,12 +59,6 @@
     {% block script %}
     {{ super() }}
     {% from '_includes/comments.html' import comments_script with context %}
-    {{ comments_script(page) }}
-    {% set depends = page.depends.split(', ') if page.depends else [] %}
-    {% if 'mathjax' in depends %}
-        {% include '_includes/mathjax.html' %}
-    {% endif %}
-    {% if 'highcharts' in depends %}
-        <script src="http://code.highcharts.com/highcharts.js"></script>
-    {% endif %}
+    {{ comments_script() }}
+    {% include '_includes/depends.html' %}
     {% endblock script %}

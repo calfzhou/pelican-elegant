@@ -1,0 +1,7 @@
+{% set depends = article.depends.split(', ') if article.depends else [] %}
+{% if 'mathjax' in depends %}
+    {% include '_includes/mathjax.html' %}
+{% endif %}
+{% if 'highcharts' in depends %}
+    <script src="//code.highcharts.com/highcharts.js"></script>
+{% endif %}
