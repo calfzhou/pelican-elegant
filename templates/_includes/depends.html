@@ -1,4 +1,4 @@
-{% set depends = article.depends.split(', ') if article.depends else [] %}
+{% set depends = (article or page).depends.split(', ') if (article or page).depends else [] %}
 {% if 'mathjax' in depends %}
     {% include '_includes/mathjax.html' %}
 {% endif %}
