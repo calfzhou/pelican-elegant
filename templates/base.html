@@ -111,6 +111,9 @@
                 return (query.length > 0);
             }
         </script>
+        <script type="text/javascript">
+            $('.article-content a.external').attr('target', '_blank');
+        </script>
         {% endblock script %}
         {% include '_includes/stat_counter.html' %}
     </body>
